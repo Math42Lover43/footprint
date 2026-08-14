@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>
+			Fingerprint
+		</title>
+		<meta charset="utf-8">
+		<style>
+			body, textarea, button {
+				font-family: 'Arial';
+			}
+			button {
+				border: 0pt;
+				border-radius: 5pt;
+			}
+		</style>
+	</head>
+	<body>
+		<table id="data">
+			<tr>
+				<td>
+					Texts
+				</td>
+			</tr>
+		</table>
+		<textarea style="width: 100%" id="sub">
+			
+		</textarea>
+		<br/>
+		<button onclick="Fingerprint.submit(document.getElementById('sub').value)">
+			Submit
+		</button>
+		<hr/>
+		<table style="font-size: 7pt;">
+			<tr>
+				<td>
+					1.0.0
+				</td>
+				<td>
+					Created!
+				</td>
+			</tr>
+		</table>
+	</body>
+	<script>
+		Fingerprint = {
+			submit: function(x) {
+				document.getElementById("data").innerHTML += `
+					<tr>
+						<td>
+							${x}
+						</td>
+					</tr>
+				`;
+			}
+		};
+	</script>
+</html>
