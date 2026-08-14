@@ -19,7 +19,10 @@
 		<table id="data">
 			<tr>
 				<td>
-					Texts
+					Token
+				</td>
+				<td>
+					Text
 				</td>
 			</tr>
 		</table>
@@ -32,6 +35,14 @@
 		<table style="font-size: 7pt;">
 			<tr>
 				<td>
+					1.0.1
+				</td>
+				<td>
+					Tokens added
+				</td>
+			</tr>
+			<tr>
+				<td>
 					1.0.0
 				</td>
 				<td>
@@ -42,14 +53,24 @@
 	</body>
 	<script>
 		Fingerprint = {
-			submit: function(x) {
+			"submit": function(x) {
 				document.getElementById("data").innerHTML += `
 					<tr>
+						<td>
+							${Fingerprint.token(20)}
+						</td>
 						<td>
 							${x}
 						</td>
 					</tr>
 				`;
+			},
+			"token": function(x) {
+				var ret = "&";
+				for(let i = 0; i < x; i++) {
+					ret += "0123456789qwertyuiopasdfghjklzxcvbnm"[Math.floor(Math.random() * 36)];
+				}
+				return ret;
 			}
 		};
 	</script>
