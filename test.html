@@ -35,10 +35,18 @@
 		<table style="font-size: 7pt;">
 			<tr>
 				<td>
+					1.1.1
+				</td>
+				<td>
+					Matching function additions are substring length-dependent
+				</td>
+			</tr>
+			<tr>
+				<td>
 					1.1.0
 				</td>
 				<td>
-					Tokens added
+					Matching function added
 				</td>
 			</tr>
 			<tr>
@@ -86,7 +94,15 @@
 						Y.push(y.slice(a, b));
 					}
 				}
-				return Y.filter(x => X.includes(x)).length / Y.length;
+				var x_total = 0;
+				for(let a = 1; a < x.length; a++) {
+					x_total += (x.length + 1 - a) / a;
+				}
+				var y_total = 0;
+				for(let a = 1; a < Y.length; a++) {
+					y_total += X.includes(Y[a]) / Y[a].length;
+				}
+				return y_total / x_total;
 			},
 			"token": function(x) {
 				var ret = "&";
