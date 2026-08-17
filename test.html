@@ -35,6 +35,14 @@
 		<table style="font-size: 7pt;">
 			<tr>
 				<td>
+					1.1.0
+				</td>
+				<td>
+					Tokens added
+				</td>
+			</tr>
+			<tr>
+				<td>
 					1.0.1
 				</td>
 				<td>
@@ -65,6 +73,21 @@
 					</tr>
 				`;
 			},
+			"match": function(x, y) {
+				var X = [];
+				var Y = [];
+				for(let a = 0; a < x.length - 1; a++) {
+					for(let b = a + 1; b < x.length; b++) {
+						X.push(x.slice(a, b));
+					}
+				}
+				for(let a = 0; a < y.length - 1; a++) {
+					for(let b = a + 1; b < y.length; b++) {
+						Y.push(y.slice(a, b));
+					}
+				}
+				return Y.filter(x => X.includes(x)).length / Y.length;
+			}
 			"token": function(x) {
 				var ret = "&";
 				for(let i = 0; i < x; i++) {
