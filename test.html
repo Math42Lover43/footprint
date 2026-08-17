@@ -93,12 +93,12 @@
 				var X = [];
 				var Y = [];
 				for(let a = 0; a < x.length; a++) {
-					for(let b = a + 1; b < x.length; b++) {
+					for(let b = a + 1; b <= x.length; b++) {
 						X.push(x.slice(a, b));
 					}
 				}
 				for(let a = 0; a < y.length; a++) {
-					for(let b = a + 1; b < y.length; b++) {
+					for(let b = a + 1; b <= y.length; b++) {
 						Y.push(y.slice(a, b));
 					}
 				}
