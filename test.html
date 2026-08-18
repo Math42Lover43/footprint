@@ -114,7 +114,7 @@
 					"match_qual": data[0] ? plaus.id : "--",
 				});
 				console.log(data[data.length - 1].match_quan);
-				if(data[data.length - 1].match_quan > 0.8) {
+				if(data[data.length - 1].match_quan >= 80) {
 					data[data.length - 1].id = plaus.id;
 				}
 				document.getElementById("data").innerHTML += `
