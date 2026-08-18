@@ -113,6 +113,9 @@
 					"match_quan": data[0] ? Math.round(Footprint.match(plaus.text, x) * 100) : "--",
 					"match_qual": data[0] ? plaus.id : "--",
 				});
+				if(data[data.length - 1].match_quan > 0.8) {
+					data[data.length - 1].id = plaus.id;
+				}
 				document.getElementById("data").innerHTML += `
 					<tr>
 						<td>
