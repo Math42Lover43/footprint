@@ -24,6 +24,9 @@
 				<td>
 					Text
 				</td>
+				<td>
+					Match
+				</td>
 			</tr>
 		</table>
 		<textarea style="width: 100%" id="sub" placeholder="Type text here"></textarea>
@@ -33,6 +36,14 @@
 		</button>
 		<hr/>
 		<table style="font-size: 7pt;">
+			<tr>
+				<td>
+					1.1.3
+				</td>
+				<td>
+					Matching to first string
+				</td>
+			</tr>
 			<tr>
 				<td>
 					1.1.2
@@ -76,15 +87,25 @@
 		</table>
 	</body>
 	<script>
-		Fingerprint = {
+		var data = [];
+		Fingerprint = { // Edit this function to use the data how you want
 			"submit": function(x) {
+				data.push({
+					"id": Fingerprint.token(20),
+					"text": x,
+					"match_quan": data[0] ? Math.round(Fingerprint.match(data[0].text, x) * 100) : "--",
+					"match_qual": data[0] ? data[0].id : "--",
+				});
 				document.getElementById("data").innerHTML += `
 					<tr>
 						<td>
-							${Fingerprint.token(20)}
+							${data[data.length - 1].id}
 						</td>
 						<td>
-							${x}
+							${data[data.length - 1].text}
+						</td>
+						<td>
+							${data[data.length - 1].match_quan}% ${data[data.length - 1].match_qual}
 						</td>
 					</tr>
 				`;
