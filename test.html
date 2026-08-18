@@ -31,7 +31,7 @@
 		</table>
 		<textarea style="width: 100%" id="sub" placeholder="Type text here"></textarea>
 		<br/>
-		<button onclick="Fingerprint.submit(document.getElementById('sub').value)">
+		<button onclick="Footprint.submit(document.getElementById('sub').value)">
 			Submit
 		</button>
 		<hr/>
@@ -104,13 +104,13 @@
 	</body>
 	<script>
 		var data = [];
-		Fingerprint = { // Edit this function to use the data how you want, such as using your variables
+		Footprint = { // Edit this function to use the data how you want, such as using your variables
 			"submit": function(x) {
-				var plaus = data.sort((a, b) => -Fingerprint.match(a.text, x) + Fingerprint.match(b.text, x))[0];
+				var plaus = data.sort((a, b) => -Footprint.match(a.text, x) + Footprint.match(b.text, x))[0];
 				data.push({
-					"id": Fingerprint.token(20),
+					"id": Footprint.token(20),
 					"text": x,
-					"match_quan": data[0] ? Math.round(Fingerprint.match(plaus.text, x) * 100) : "--",
+					"match_quan": data[0] ? Math.round(Footprint.match(plaus.text, x) * 100) : "--",
 					"match_qual": data[0] ? plaus.id : "--",
 				});
 				document.getElementById("data").innerHTML += `
