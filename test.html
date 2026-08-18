@@ -106,7 +106,7 @@
 		var data = [];
 		Fingerprint = { // Edit this function to use the data how you want, such as using your variables
 			"submit": function(x) {
-				var plaus = data.sort((a, b) => Fingerprint.match(a.text, x) - Fingerprint.match(b.text, x))[0];
+				var plaus = data.sort((a, b) => -Fingerprint.match(a.text, x) + Fingerprint.match(b.text, x))[0];
 				data.push({
 					"id": Fingerprint.token(20),
 					"text": x,
