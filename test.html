@@ -126,11 +126,11 @@
 				console.log(Y);
 				var x_total = 0;
 				for(let a = 1; a <= x.length; a++) {
-					x_total += (x.length + 1 - a) / (2 ** a);
+					x_total += (x.length + 1 - a) / (3 ** a);
 				}
 				var y_total = 0;
 				for(let a = 1; a < Y.length; a++) {
-					y_total += X.includes(Y[a]) / (2 ** Y[a].length);
+					y_total += X.includes(Y[a]) / (3 ** Y[a].length);
 				}
 				return y_total / x_total;
 			},
